@@ -1,26 +1,23 @@
 #include "Engine.h"
 
 Engine::Engine()
-    : m_Car(m_InputHandler)   // Initialize car with the input handler
+    : m_Vehicle(m_InputHandler)   // vehicle needs input handler
+    , m_Car(m_Vehicle)            // car needs vehicle
 {
-    Vector2f resolution(1280, 720);
-    m_Window.create(VideoMode(resolution.x, resolution.y), "LogInk: Escape from Warehouse");
+    sf::Vector2f resolution(1280, 720);
+    m_Window.create(sf::VideoMode(resolution.x, resolution.y), "LogInk: Escape from Warehouse");
 
-    // Set window icon once after creation
-    Image icon;
+    // Set window icon once
+    sf::Image icon;
     if (icon.loadFromFile("Image/icon.png")) {
         m_Window.setIcon(64, 64, icon.getPixelsPtr());
     }
-
-    // Load background texture
-    m_BackgroundTexture.loadFromFile("Image/Background.jpg");
-    m_BackgroundSprite.setTexture(m_BackgroundTexture);
 }
 
 void Engine::start() {
-    Clock clock;
+    sf::Clock clock;
     while (m_Window.isOpen()) {
-        Time dt = clock.restart();
+        sf::Time dt = clock.restart();
         float dtAsSeconds = dt.asSeconds();
 
         input();

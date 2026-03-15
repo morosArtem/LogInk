@@ -1,15 +1,12 @@
 #include "Engine.h"
 
 void Engine::draw() {
-    // Clear the window with a white background
-    m_Window.clear(Color::White);
+    m_Window.clear(sf::Color::White);
 
-    // Draw background first
-    m_Window.draw(m_BackgroundSprite);
+    // Draw road background
+    m_Road.draw(m_Window);
+    // Draw car
+    m_Car.draw(m_Window);
 
-    // Draw the car on top
-    m_Window.draw(m_Car.getSprite());
-
-    // Display everything
     m_Window.display();
 }

@@ -1,22 +1,18 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Car.h"
 #include "InputHandler.h"
+#include "Vehicle.h"
+#include "Car.h"
+#include "Road.h"
 
-using namespace sf;
-
-/**
- * @class Engine
- * @brief Main game engine class. Manages the window, game loop, and updates.
- */
 class Engine {
 private:
-    RenderWindow m_Window;
-    Sprite m_BackgroundSprite;
-    Texture m_BackgroundTexture;
+    sf::RenderWindow m_Window;
 
-    InputHandler m_InputHandler;   // Handles key states
-    Car m_Car;                      // Player's car
+    InputHandler m_InputHandler;
+    Vehicle m_Vehicle;
+    Car m_Car;
+    Road m_Road;
 
     void input();
     void update(float dtAsSeconds);
