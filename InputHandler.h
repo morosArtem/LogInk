@@ -1,7 +1,10 @@
 #pragma once
 
-// Handles keyboard (or other) input states.
-// Can be shared among multiple game objects that need to know which keys are pressed.
+/**
+ * @class InputHandler
+ * @brief Handles keyboard (or other) input states.
+ *        Can be shared among multiple game objects that need to know which keys are pressed.
+ */
 class InputHandler {
 private:
     bool m_UpPressed = false;
@@ -10,7 +13,7 @@ private:
     bool m_RightPressed = false;
 
 public:
-    // Called when a key is pressed
+    // State modifiers
     void pressUp()    { m_UpPressed = true; }
     void releaseUp()  { m_UpPressed = false; }
     void pressDown()  { m_DownPressed = true; }
@@ -20,7 +23,7 @@ public:
     void pressRight() { m_RightPressed = true; }
     void releaseRight(){ m_RightPressed = false; }
 
-    // Query methods to check current key states
+    // Query methods
     bool isUpPressed() const    { return m_UpPressed; }
     bool isDownPressed() const  { return m_DownPressed; }
     bool isLeftPressed() const  { return m_LeftPressed; }
