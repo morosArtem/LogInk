@@ -1,47 +1,36 @@
 #include "Engine.h"
 
-void Engine::input()
-{
-    
-    if (Keyboard::isKeyPressed(Keyboard::Escape))
-    {
+void Engine::input() {
+    // Close window on Escape key
+    if (Keyboard::isKeyPressed(Keyboard::Escape)) {
         m_Window.close();
     }
 
-    
-    if (Keyboard::isKeyPressed(Keyboard::W))
-    {
-        m_Car.moveUp();
-    }
-    else
-    {
-        m_Car.stopUp();
+    // --- Up movement: W or Up arrow ---
+    if (Keyboard::isKeyPressed(Keyboard::W) || Keyboard::isKeyPressed(Keyboard::Up)) {
+        m_InputHandler.pressUp();
+    } else {
+        m_InputHandler.releaseUp();
     }
 
-    if (Keyboard::isKeyPressed(Keyboard::S))
-    {
-        m_Car.moveDown();
-    }
-    else
-    {
-        m_Car.stopDown();
+    // --- Down movement: S or Down arrow ---
+    if (Keyboard::isKeyPressed(Keyboard::S) || Keyboard::isKeyPressed(Keyboard::Down)) {
+        m_InputHandler.pressDown();
+    } else {
+        m_InputHandler.releaseDown();
     }
 
-    if (Keyboard::isKeyPressed(Keyboard::A))
-    {
-        m_Car.moveLeft();
-    }
-    else
-    {
-        m_Car.stopLeft();
+    // --- Left movement: A or Left arrow ---
+    if (Keyboard::isKeyPressed(Keyboard::A) || Keyboard::isKeyPressed(Keyboard::Left)) {
+        m_InputHandler.pressLeft();
+    } else {
+        m_InputHandler.releaseLeft();
     }
 
-    if (Keyboard::isKeyPressed(Keyboard::D))
-    {
-        m_Car.moveRight();
-    }
-    else
-    {
-        m_Car.stopRight();
+    // --- Right movement: D or Right arrow ---
+    if (Keyboard::isKeyPressed(Keyboard::D) || Keyboard::isKeyPressed(Keyboard::Right)) {
+        m_InputHandler.pressRight();
+    } else {
+        m_InputHandler.releaseRight();
     }
 }

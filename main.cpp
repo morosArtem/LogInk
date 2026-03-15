@@ -1,16 +1,20 @@
 #include <SFML/Graphics.hpp>
+#include "TextureHolder.h"
 #include "Engine.h"
 
-using namespace sf;
+/**
+ * @brief Program entry point.
+ *        Initializes the texture holder and starts the game engine.
+ */
+int main() {
+    // Must be created before any texture requests
+    TextureHolder texHolder;
 
-int main()
-{
     Engine engine;
-
     engine.start();
 
     return 0;
-    //RenderWindow win(VideoMode(1280, 720), L"LogInk: Побег со склада");
+    //RenderWindow win(VideoMode(1280, 720), L"LogInk: ГЏГ®ГЎГҐГЈ Г±Г® Г±ГЄГ«Г Г¤Г ");
 
     //Image icon;
     //if (!icon.loadFromFile("Image/icon.png"))
