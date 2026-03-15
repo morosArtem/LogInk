@@ -1,16 +1,16 @@
 #include <SFML/Graphics.hpp>
+#include "TextureHolder.h"
 #include "Engine.h"
 
-using namespace sf;
+int main() {
+    // Initialize texture holder (must be done before any texture requests)
+    TextureHolder texHolder;
 
-int main()
-{
     Engine engine;
-
     engine.start();
 
     return 0;
-    //RenderWindow win(VideoMode(1280, 720), L"LogInk: Побег со склада");
+    //RenderWindow win(VideoMode(1280, 720), L"LogInk: ГЏГ®ГЎГҐГЈ Г±Г® Г±ГЄГ«Г Г¤Г ");
 
     //Image icon;
     //if (!icon.loadFromFile("Image/icon.png"))
