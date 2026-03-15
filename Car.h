@@ -1,35 +1,19 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "InputHandler.h"
+#include "Vehicle.h"
 
 /**
  * @class Car
- * @brief Represents the player's car. It holds a sprite and updates its position
- *        based on input from an InputHandler.
+ * @brief Graphical representation of a vehicle. Contains a sprite and links to the vehicle model.
+ *        It does not contain movement logic; it just displays the vehicle at the model's position.
  */
 class Car {
 private:
-    sf::Sprite m_Sprite;      // The visual representation of the car
-    sf::Vector2f m_Position;  // Current position in the world
-    float m_Speed;            // Movement speed (pixels per second)
-    InputHandler& m_Input;     // Reference to the input provider
+    sf::Sprite m_Sprite;
+    const Vehicle& m_Vehicle;   // Reference to the logical vehicle (we don't own it)
 
 public:
-    /**
-     * @brief Constructor – takes an InputHandler reference used to query keys.
-     * @param input Reference to the input handler.
-     */
-    Car(InputHandler& input);
-
-    /**
-     * @brief Updates the car's position based on elapsed time and current input.
-     * @param elapsedTime Time since last frame (seconds).
-     */
-    void update(float elapsedTime);
-
-    /**
-     * @brief Returns the sprite for drawing.
-     * @return The car's sprite.
-     */
-    sf::Sprite getSprite() const { return m_Sprite; }
+    Car(const Vehicle& vehicle);
+    void update();  // (optional) could handle animation, but for now just syncs position
+    void draw(sf::RenderWindow& window) const;  // draws the sprite
 };
